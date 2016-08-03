@@ -30,8 +30,7 @@ class Date {
    *  a valid date, the program halts with an error message.
    */
   public Date(String s) {
-
-     this.date = s;
+  this.date = s;
 
   }
 
@@ -39,7 +38,16 @@ class Date {
    *  @return true if and only if the input year is a leap year.
    */
   public static boolean isLeapYear(int year) {
-    return true;                        // replace this line with your solution
+     if((year % 4) ==0) {
+       if((year %100) != 0) {
+        return true;}
+      } else if((year % 400) ==0) {
+          return true;
+        }
+     
+   
+
+    return false;                        // replace this line with your solution
   }
 
   /** Returns the number of days in a given month.
