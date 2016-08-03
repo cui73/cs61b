@@ -12,8 +12,15 @@ class Date {
    *  @param day is between 1 and the number of days in the given month.
    *  @param year is the year in question, with no digits omitted.
    */
+       int month;
+       int day;
+       int year;
+       String date;
   public Date(int month, int day, int year) {
-
+        this.month = month;
+        this.day =day;
+        this.year=year;
+      
   }
 
   /** Constructs a Date object corresponding to the given string.
@@ -23,6 +30,8 @@ class Date {
    *  a valid date, the program halts with an error message.
    */
   public Date(String s) {
+
+     this.date = s;
 
   }
 
