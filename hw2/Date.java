@@ -12,10 +12,10 @@ class Date {
    *  @param day is between 1 and the number of days in the given month.
    *  @param year is the year in question, with no digits omitted.
    */
-       int month;
-       int day;
-       int year;
-       String date;
+      private int month;
+      private int day;
+      private int year;
+      private String date;
   public Date(int month, int day, int year) {
         this.month = month;
         this.day =day;
@@ -56,7 +56,65 @@ class Date {
    *  @return the number of days in the given month.
    */
   public static int daysInMonth(int month, int year) {
-    return 0;                           // replace this line with your solution
+    int days;
+    if(isLeapYear(year)){
+      if(month == 1){
+        return days = 31;
+      } else if (month == 2) {
+        return days = 29;
+      } else if(month ==3){
+        return days =31;
+      } else if(month ==4) {
+        return days =30;
+      } else if(month ==5) {
+        return days =31;
+      } else if(month ==6) {
+        return days =30;
+      } else if(month ==7) {
+        return days =31;
+      } else if(month ==8) {
+        return days = 31;
+      } else if(month ==9) {
+        return days=30;
+      } else if (month ==10) {
+        return days=31;
+      } else if(month ==11) {
+        return days=30;
+      } else {
+        return days =31;
+      }
+    } else {
+       if(month == 1){
+        return days = 31;
+      } else if (month == 2) {
+        return days = 28;
+      } else if(month ==3){
+        return days =31;
+      } else if(month ==4) {
+        return days =30;
+      } else if(month ==5) {
+        return days =31;
+      } else if(month ==6) {
+        return days =30;
+      } else if(month ==7) {
+        return days =31;
+      } else if(month ==8) {
+        return days = 31;
+      } else if(month ==9) {
+        return days=30;
+      } else if (month ==10) {
+        return days=31;
+      } else if(month ==11) {
+        return days=30;
+      } else {
+        return days =31;
+      }
+      
+
+    }
+    
+
+    
   }
 
   /** Checks whether the given date is valid.
@@ -65,7 +123,14 @@ class Date {
    *  Years prior to A.D. 1 are NOT valid.
    */
   public static boolean isValidDate(int month, int day, int year) {
-    return true;                        // replace this line with your solution
+          if((month >0 && month <13) && (day >0 && day <32) && (year >0)) {
+            return true;
+
+          } 
+
+          return false;
+
+    
   }
 
   /** Returns a string representation of this date in the form month/day/year.
@@ -74,14 +139,16 @@ class Date {
    *  @return a String representation of this date.
    */
   public String toString() {
-    return "stuff";                     // replace this line with your solution
-  }
+   return this.month+"/"+this.day+"/"+this.year;
+
+   }
 
   /** Determines whether this Date is before the Date d.
    *  @return true if and only if this Date is before d. 
    */
   public boolean isBefore(Date d) {
-    return true;                        // replace this line with your solution
+     
+    
   }
 
   /** Determines whether this Date is after the Date d.
