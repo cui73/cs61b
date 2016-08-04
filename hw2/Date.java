@@ -166,27 +166,31 @@ class Date {
     if(this.month <d.month){
             return true;
           } else if(this.month == d.month){
-            if(this.day < d.day){
-              return true;}
-
+                   if(this.day < d.day){
+              return true;} 
+              }
               
+            }
+            return false;
 
-}
-}
-return false;
-}
+
+} 
+
+
 
 
   /** Determines whether this Date is after the Date d.
    *  @return true if and only if this Date is after d. 
    */
   public boolean isAfter(Date d) {
-     if(isBefore(d)){
-      return false;
+     if(!isBefore(d) &&(!(this.day==d.day && this.month == d.month &&this .year ==this.year))){
+      return true;
 
-     }else 
-     return true;                       // replace this line with your solution
-  }
+     }
+     return false;
+     }
+                            // replace this line with your solution
+  
 
   /** Returns the number of this Date in the year.
    *  @return a number n in the range 1...366, inclusive, such that this Date
@@ -208,12 +212,7 @@ return false;
    */
   public int difference(Date d) {
      int result;
-     if(isBefore(d)){
-      result = this.day - d.day;
-     } else
-      result = this.day - d.day;
-
-      return result;
+   
   }
 
   public static void main(String[] argv) {
