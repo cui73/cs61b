@@ -159,52 +159,49 @@ class Date {
    *  @return true if and only if this Date is before d. 
    */
   public boolean isBefore(Date d) {
-     if(day > d.day){
-      if(month >= d.month){
-        if(year < d.year){
-          return true;
-        }
-      }
-    }
-    
-      if (day >= d.day){
-      if(month < d.month){
-        if(year <= d.year){
-          return true;
-        }
-      }
-    }
-     if (day <= d.day){
-      if(month >= d.month){
-        if(year < d.year){
-          return true;
-        }
-      }
-    }
-     if (day <= d.day){
-      if(month < d.month){
-        if(year <= d.year){
-          return true;
-        }
-      }
-    }
      
-  if (day < d.day){
-      if(month <= d.month){
-        if(year <= d.year){
-          return true;
-        }
+
+
+   if(day <=d.day){
+    if(month <= d.month){
+      if(year < d.year){
+         return true;
+
       }
     }
-    if (day == d.day){
-      if(month == d.month){
-        if(year == d.year){
-          return false;
-        }
+   }
+
+   if(day <=d.day){
+    if(month >= d.month){
+      if(year < d.year){
+         return true;
+
       }
     }
-    return false;
-   
+   }
+        if (day >= d.day) {
+          if(month <= d.month){
+            if(year < d.year){
+              return true;
+            }
+          }
+   }
+      if (day >= d.day) {
+          if(month >= d.month){
+            if(year < d.year){
+              return true;
+            }
+          }
+   }
+     if (day == d.day) {
+          if(month == d.month){
+            if(year == d.year){
+              return false;
+            }
+          }
+   }
+
+      return false;
      
     
   }
