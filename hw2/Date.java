@@ -151,7 +151,7 @@ class Date {
    *  @return a String representation of this date.
    */
   public String toString() {
-   return Integer.toString(this.month)+"/"+Integer.toString(this.day)+"/"+Integer.toString(this.year);
+   return this.month+"/"+this.day+"/"+this.year;
 
    }
 
