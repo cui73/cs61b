@@ -160,48 +160,29 @@ class Date {
    */
   public boolean isBefore(Date d) {
      
-
-
-   if(day <=d.day){
-    if(month <= d.month){
-      if(year < d.year){
-         return true;
-
-      }
-    }
-   }
-
-   if(day <=d.day){
-    if(month >= d.month){
-      if(year < d.year){
-         return true;
-
-      }
-    }
-   }
-        if (day >= d.day) {
-          if(month <= d.month){
-            if(year < d.year){
-              return true;
-            }
+   if(this.year < d.year){
+    return true;
+   } else if (this.year == d.year){
+          if(this.month <d.month){
+            return true;
+          } else {
+            return false;
           }
-   }
-      if (day >= d.day) {
-          if(month >= d.month){
-            if(year < d.year){
+
+   } else if (this.year == d.year){
+          if(this.month == d.month){
+            if(this.day < d.day){
               return true;
-            }
-          }
-   }
-     if (day == d.day) {
-          if(month == d.month){
-            if(year == d.year){
+            } else {
               return false;
             }
           }
    }
 
-      return false;
+   return false;
+
+
+  
      
     
   }
