@@ -139,7 +139,7 @@ class Date {
    *  @return a String representation of this date.
    */
   public String toString() {
-   return this.month+"/"+this.day+"/"+this.year;
+   return Integer.toString(this.month)+"/"+Integer.toString(this.day)+"/"+Integer.toString(this.year);
 
    }
 
@@ -194,7 +194,11 @@ class Date {
    *  @return true if and only if this Date is after d. 
    */
   public boolean isAfter(Date d) {
-    return true;                        // replace this line with your solution
+     if(isBefore(d)){
+      return false;
+
+     } 
+     return true;                       // replace this line with your solution
   }
 
   /** Returns the number of this Date in the year.
@@ -203,7 +207,11 @@ class Date {
    *  year.)
    */
   public int dayInYear() {
-    return 0;                           // replace this line with your solution
+    if(isLeapYear(year)){
+      return 366;
+    } else {
+      return 365;
+    }
   }
 
   /** Determines the difference in days between d and this Date.  For example,
@@ -212,7 +220,13 @@ class Date {
    *  @return the difference in days between d and this date.
    */
   public int difference(Date d) {
-    return 0;                           // replace this line with your solution
+     int result;
+     if(isBefore(d)){
+      result = this.day - d.day;
+     } else
+      result = this.day - d.day;
+
+      return result;
   }
 
   public static void main(String[] argv) {
