@@ -31,9 +31,15 @@ class Date {
    */
   public Date(String s) {
   String daysNum[] = s.split("/");
-   this.day = daysNum(0);
-   this.month = daysNum(1);
-   this.year =daysNum(2);
+   this.month = Integer.parseInt(daysNum[0]);
+   this.day = Integer.parseInt(daysNum[1]);
+   this.year =Integer.parseInt(daysNum[2]);
+
+   if(!isValidDate(month,day,year)) {
+      System.out.println("Error: month and day must be one or two digits, and year must be after 1AD");
+    //System.exit(0);
+
+   }
 
 
   }
@@ -127,11 +133,15 @@ class Date {
    *  Years prior to A.D. 1 are NOT valid.
    */
   public static boolean isValidDate(int month, int day, int year) {
+    int dayso = daysInMonth(month,year);
     if(year < 1) {
       return false;
     }
-    if(month )
-
+  
+    if(day > dayso || day <1) {
+      return false;
+    }
+    return true;
     
   }
 
@@ -183,6 +193,13 @@ class Date {
       if(month <= d.month){
         if(year <= d.year){
           return true;
+        }
+      }
+    }
+    if (day == d.day){
+      if(month == d.month){
+        if(year == d.year){
+          return false;
         }
       }
     }
