@@ -162,30 +162,20 @@ class Date {
      
    if(this.year < d.year){
     return true;
-   } else if (this.year == d.year){
-          if(this.month <d.month){
+   } else if(this.year == d.year){
+    if(this.month <d.month){
             return true;
-          } else {
-            return false;
-          }
-
-   } else if (this.year == d.year){
-          if(this.month == d.month){
+          } else if(this.month == d.month){
             if(this.day < d.day){
-              return true;
-            } else {
-              return false;
-            }
-          }
-   }
+              return true;}
 
-   return false;
+              
 
+}
+}
+return false;
+}
 
-  
-     
-    
-  }
 
   /** Determines whether this Date is after the Date d.
    *  @return true if and only if this Date is after d. 
@@ -194,7 +184,7 @@ class Date {
      if(isBefore(d)){
       return false;
 
-     } 
+     }else 
      return true;                       // replace this line with your solution
   }
 
