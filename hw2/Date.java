@@ -30,7 +30,11 @@ class Date {
    *  a valid date, the program halts with an error message.
    */
   public Date(String s) {
-  this.date = s;
+  String daysNum[] = s.split("/");
+   this.day = daysNum(0);
+   this.month = daysNum(1);
+   this.year =daysNum(2);
+
 
   }
 
@@ -123,12 +127,10 @@ class Date {
    *  Years prior to A.D. 1 are NOT valid.
    */
   public static boolean isValidDate(int month, int day, int year) {
-          if((month >0 && month <13) && (day >0 && day <32) && (year >0)) {
-            return true;
-
-          } 
-
-          return false;
+    if(year < 1) {
+      return false;
+    }
+    if(month )
 
     
   }
