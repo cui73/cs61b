@@ -15,7 +15,7 @@ class Date {
       private int month;
       private int day;
       private int year;
-      private String date;
+      //private String date;
   public Date(int month, int day, int year) {
         this.month = month;
         this.day =day;
@@ -211,7 +211,15 @@ class Date {
    *  @return the difference in days between d and this date.
    */
   public int difference(Date d) {
-     int result;
+     int result =0; 
+     if(this.year == d.year) {
+        if(this.month == d.month){
+          if(this.day == d.day){
+            result = 0;
+          }
+        }
+     }
+     return result;
    
   }
 
