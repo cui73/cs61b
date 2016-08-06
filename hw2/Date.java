@@ -212,14 +212,70 @@ class Date {
    */
   public int difference(Date d) {
      int result =0; 
+     int countMonth=0;
+     int countDays =0;
      if(this.year == d.year) {
         if(this.month == d.month){
           if(this.day == d.day){
             result = 0;
           }
         }
-     }
+     }else if(isAfter(d)){
+           if(this.year == d.year){
+            if(this.month == d.month){
+              if(d.day > this.day){
+                result = d.day - this.day;
+              }
+            }
+           }
+
+     } else if(isAfter(d)){
+       if(this.year == d.year){
+            if(d.month > this.month){
+              
+                  // countMonth = d.month - this.month;
+                  // daysInMonth(this.month,this.year);
+                  // daysInMonth(d.month,d.year);
+                  for(int i =this.month;i <= d.month;this.month++){
+                     countMonth=daysInMonth(this.month,this.year)+countMonth;
+                  }
+                     countDays = d.day - this.day;;
+                     result = countMonth+countDays;
+
+                //countDays =  d.day - this.day;
+
+              }
+            }
+           }else if(isBefore(d)){
+           if(this.year == d.year){
+            if(this.month == d.month){
+              if(d.day < this.day){
+                result = d.day - this.day;
+              }
+            }
+           }
+
+     }else if(isBefore(d)){
+       if(this.year == d.year){
+            if(d.month < this.month){
+              
+                  // countMonth = d.month - this.month;
+                  // daysInMonth(this.month,this.year);
+                  // daysInMonth(d.month,d.year);
+                  for(int i =this.month;i <= d.month;this.month++){
+                     countMonth=daysInMonth(this.month,this.year)+countMonth;
+                  }
+                     countDays = d.day - this.day;;
+                     result = countMonth+countDays;
+
+                //countDays =  d.day - this.day;
+
+              }
+            }
+           }
+     
      return result;
+     
    
   }
 
