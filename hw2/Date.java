@@ -204,6 +204,13 @@ class Date {
       return 365;
     }
   }
+  // public int dayInYear(Date d) {
+  //   if(isLeapYear(year)){
+  //     return 366;
+  //   } else {
+  //     return 365;
+  //   }
+  // }
 
   /** Determines the difference in days between d and this Date.  For example,
    *  if this Date is 12/15/1997 and d is 12/14/1997, the difference is 1.
@@ -212,74 +219,112 @@ class Date {
    */
   public int difference(Date d) {
      int result =0; 
-     int countMonth=0;
+     int countMonth =0;
      int countDays =0;
-     if(this.year == d.year) {
-        if(this.month == d.month){
+     int countYear =0;
+     
+          if(this.year == d.year) {
+          if(this.month == d.month){
           if(this.day == d.day){
-            result = 0;
+           return result = this.day-d.day;
           }
         }
-     }else if(isAfter(d)){
+
+           else if(d.isAfter(this)){
            if(this.year == d.year){
             if(this.month == d.month){
-              if(d.day > this.day){
-                result = d.day - this.day;
+              //if(this.day > d.day)
+              
+     return result =this.day - d.day;
               }
             }
            }
 
-     } else if(isAfter(d)){
-       if(this.year == d.year){
-            if(d.month > this.month){
+              else if (d.isAfter(this))
+                 if(this.year == d.year){
+                 if(this.month > d.month){
               
                   // countMonth = d.month - this.month;
                   // daysInMonth(this.month,this.year);
                   // daysInMonth(d.month,d.year);
-                  for(int i =this.month;i <= d.month;this.month++){
-                     countMonth=daysInMonth(this.month,this.year)+countMonth;
+                  for(int i =d.month;i <= this.month;d.month++){
+                     countMonth=daysInMonth(d.month,d.year)+countMonth;
                   }
-                     countDays = d.day - this.day;;
-                     result = countMonth+countDays;
+                     countDays = this.day - d.day;
+                     return result = countMonth+countDays;
 
                 //countDays =  d.day - this.day;
 
-              }
-            }
-           }else if(isBefore(d)){
-           if(this.year == d.year){
-            if(this.month == d.month){
-              if(d.day < this.day){
-                result = d.day - this.day;
-              }
-            }
-           }
-
-     }else if(isBefore(d)){
-       if(this.year == d.year){
-            if(d.month < this.month){
-              
-                  // countMonth = d.month - this.month;
-                  // daysInMonth(this.month,this.year);
-                  // daysInMonth(d.month,d.year);
-                  for(int i =this.month;i <= d.month;this.month++){
+              } else if(d.isAfter(this)){
+           if(this.year > d.year){
+            if((this.year-d.year)>1)
+            for(int i =d.year;i <= this.year;d.year++){
+                     countYear=d.dayInYear()+countYear;
+                  }
+                  return result = countMonth+countDays +countYear ;
+                }
+                  else if(this.month > d.month){
+            for(int i =d.month;i <= this.month;d.month++){
+                     countMonth=daysInMonth(d.month,d.year)+countMonth;
+                  }
+                  countDays = this.day - d.day;
+                 return result = countMonth+countDays;
+            
+           }else if (this.month < d.month){
+              for(int i =this.month;i <= d.month;this.month++){
                      countMonth=daysInMonth(this.month,this.year)+countMonth;
                   }
-                     countDays = d.day - this.day;;
-                     result = countMonth+countDays;
+                     countDays = this.day - d.day;
+                     
+                 return result = countMonth+countDays;
 
-                //countDays =  d.day - this.day;
 
-              }
-            }
+
            }
+         }
+       }
+         
+   //     }   else if(isBefore(this)){
+   //         if(this.year < d.year){
+   //          for(int i =this.year;i <= d.year;this.year++){
+   //                   countYear=this.dayInYear()+countYear;
+   //                }
+            
+   //         }
+   //              if(this.month > d.month){
+   //          for(int i =d.month;i <= this.month;d.month++){
+   //                   countMonth=daysInMonth(d.month,d.year)+countMonth;
+   //                }
+   //                countDays = this.day - d.day;
+   //               return result = countMonth+countDays+countYear;
+            
+   //         }else if (this.month < d.month){
+   //            for(int i =this.month;i <= d.month;this.month++){
+   //                   countMonth=daysInMonth(this.month,this.year)+countMonth;
+   //                }
+   //                   countDays = this.day - d.day;
+   //                   return result = countMonth+countDays+countYear;
+
+
+
+   //         }
+   //       }
      
-     return result;
+    
+   // }
+    
+ 
+
+
+}
+ return result;
+}
      
    
-  }
+  
 
-  public static void main(String[] argv) {
+
+    public static void main(String[] argv) {
     System.out.println("\nTesting constructors.");
     Date d1 = new Date(1, 1, 1);
     System.out.println("Date should be 1/1/1: " + d1);
