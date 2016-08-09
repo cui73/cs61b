@@ -50,10 +50,11 @@ class Date {
   public static boolean isLeapYear(int year) {
      if((year % 4) ==0) {
        if((year %100) != 0) {
-        return true;}
-      } else if((year % 400) ==0) {
+        return true;} else if((year % 400) ==0) {
           return true;
         }
+      }
+      
      
    
 
@@ -237,101 +238,100 @@ class Date {
           if(this.year == d.year) {
           if(this.month == d.month){
           if(this.day == d.day){
-           return result = 0;
-          }
-        }
-           if(this.year == d.year){
-            if(this.month == d.month){
-              if(this.day > d.day){
+           return result;
+          } } }
+
+           //else if(this.day > d.day){
               
-          return result =this.day - d.day;
-              } else {
-                return result =-(this.day - d.day);
-              }
-            }
-          } else if(this.year == d.year){
-                 if(this.month > d.month){
+        //         return result =this.day - d.day;
+        //       } 
+        //       else {
+        //         return result = this.day - d.day;
+        //       }
+        //     } else if (this.month > d.month){
+
+        //           for(int i =d.month;i < this.month;d.month++){
+        //              countMonth=daysInMonth(d.month,d.year)+countMonth; 
+        //           }
+                     
+        //              countDays = this.day-d.day;
+        //              return result = countMonth+countDays; }
+
+        //               else {
+
+        //           for(int i =this.month;i < d.month;d.month++){
+        //              countMonth=daysInMonth(this.month,this.year)+countMonth; 
+        //           }
+                     
+        //              countDays = this.day-d.day;
+        //              return result = countMonth+countDays;
+
+
+        //       } 
+        // } 
+      
               
-             
-                  for(int i =d.month;i < this.month;d.month++){
-                     countMonth=daysInMonth(d.month,d.year)+countMonth; 
-                  }
-                     
-                     countDays = this.day-d.day;
-                     return result = countMonth+countDays;
-
-             
-
-              } else {
-
-                  for(int i =this.month;i < d.month;d.month++){
-                     countMonth=daysInMonth(this.month,this.year)+countMonth; 
-                  }
-                     
-                     countDays = this.day-d.day;
-                     return result = -(countMonth+countDays);
-
-
-              } 
-            }
           
-               else if(this.isAfter(d)){
+             
+                if(this.isAfter(d)){
              
                 for(int i =1; i < this.year;i++){
-                  countYear = this.dayInYear(i) + countYear;
+                  resultForThis += this.dayInYear(i);
 
                 }
+
                 for(int i =1; i < this.month;i++){
-                  countMonth = daysInMonth(i,this.year) +countMonth;
+                  resultForThis += daysInMonth(i,this.year); 
                 }
-                resultForThis = countYear + countMonth + this.day;
+                resultForThis += this.day;
+                  
 
                  for(int i =1; i < d.year;i++){
-                  countYear = d.dayInYear(i) + countYear;
+                  resultForD += d.dayInYear(i);
 
                 }
                 for(int i =1; i < d.month;i++){
-                  countMonth = daysInMonth(i,d.year) +countMonth;
+                  resultForD += daysInMonth(i,d.year);
                 }
-               resultForD = countYear + countMonth + this.day;
+               resultForD  += d.day;
 
                return result = resultForThis - resultForD;
            
-         } else {
+          } else {
 
-             for(int i =1; i < this.year;i++){
-                  countYear = this.dayInYear(i) + countYear;
+            for(int i =1; i < this.year;i++){
+                  resultForThis += this.dayInYear(i);
 
                 }
+
                 for(int i =1; i < this.month;i++){
-                  countMonth = daysInMonth(i,this.year) +countMonth;
+                  resultForThis += daysInMonth(i,this.year); 
                 }
-                resultForThis = countYear + countMonth + this.day;
+                resultForThis += this.day;
+                  
 
                  for(int i =1; i < d.year;i++){
-                  countYear = d.dayInYear(i) + countYear;
+                  resultForD += d.dayInYear(i);
 
                 }
                 for(int i =1; i < d.month;i++){
-                  countMonth = daysInMonth(i,d.year) +countMonth;
+                  resultForD += daysInMonth(i,d.year);
                 }
-               resultForD = countYear + countMonth + this.day;
+               resultForD  += d.day;
 
-               return result = -(resultForThis - resultForD);
+               return result = resultForThis - resultForD;
+
+                }
 
 
 
-
-
-         }
+      
        
         
 
-
-
 }
- return result;
-}
+ 
+
  
 
      
